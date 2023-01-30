@@ -5,12 +5,12 @@ export class Character {
     public age: number,
     public lifestate: boolean
   ) {
-    this.lifestate = true;
     this.name = name;
     this.age = age;
     this.family = family;
+    this.lifestate = true;
   }
-  greetings() => {
+  greetings() {
     console.log(`Hola soy ${this.name} y tengo ${this.age}`); // Cambiar de clg a "asignar string"
   }
   kill() {
@@ -18,7 +18,7 @@ export class Character {
   }
 }
 
-class King extends Character {
+export class King extends Character {
   constructor(
     public name: string,
     public family: string,
@@ -28,17 +28,24 @@ class King extends Character {
   ) {
     super(name, family, age, lifestate);
   }
-  super.greetings() {
-    console.log("Vais a morir todos")
+  greetings(){
+    super.greetings();
+    console.log("Primero pego, luego pregunto");
   }
 }
 
-class Fighter extends Character {
+export class Fighter extends Character {
   constructor(
     public name: string,
     public family: string,
     public age: number,
     public lifestate: boolean,
-    public reigningAge: number
-  )
+    public weapon: string,
+    public skill: number,
+  ){
+    super(name, family, age, lifestate);
+  }
+  super.greetings(){
+    console.log("Primero pego y luego pregunto");
+  }
 }
